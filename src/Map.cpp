@@ -2,11 +2,12 @@
 
 using namespace std;
 
-Map::Map(int l, int c, int fx, int fy) {
+Map::Map(int l, int c, int fx, int fy, vector<vector<int>> forest) {
     this->lines = l;
     this->columns = c;
     this->fireInitialX = fx;
     this->fireInitialY = fy;
+    this->forest = forest;
 }
 
 int Map::getLines() {return this->lines;}

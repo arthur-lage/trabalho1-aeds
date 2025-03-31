@@ -20,7 +20,7 @@ Map FileReader::readMap() {
     int lines;
     int columns;
     int fireInitialX;
-    int  fireInitialY;
+    int fireInitialY;
 
     int cont = 0;
     
@@ -38,10 +38,11 @@ Map FileReader::readMap() {
 
             cont++;
         }
-
     }
-    
-    Map map = Map(lines, columns, fireInitialX, fireInitialY);
+
+    vector<vector<int>> forest = vector<vector<int>>(lines, vector<int>(columns));
+
+    Map map = Map(lines, columns, fireInitialX, fireInitialY, forest);
 
     file.close();
 
