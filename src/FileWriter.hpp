@@ -11,5 +11,6 @@ class FileWriter {
         string filename;
         ofstream file;
     public:
+        FileWriter(string filename);
         void generateOutput();
 };
