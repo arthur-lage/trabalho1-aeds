@@ -42,6 +42,22 @@ Map FileReader::readMap() {
 
     vector<vector<int>> forest = vector<vector<int>>(lines, vector<int>(columns));
 
+    string linha;
+
+    while (getline(cin, linha)) {  // Lê cada linha da entrada
+        vector<int> linhaNumeros;
+        stringstream ss(linha);
+        int num;
+
+        while (ss >> num) {  // Lê os números da linha
+            linhaNumeros.push_back(num);
+        }
+
+        if (!linhaNumeros.empty()) {
+            forest.push_back(linhaNumeros);
+        }
+    }
+
     Map map = Map(lines, columns, fireInitialX, fireInitialY, forest);
 
     file.close();
