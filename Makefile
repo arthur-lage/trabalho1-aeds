@@ -1,15 +1,40 @@
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CXX      := g++                 
+CXXFLAGS := -Wall -Wextra -Werror
+LDFLAGS  := -lm                 
+BUILD    := ./build
+OBJ_DIR  := $(BUILD)/objects
+APP_DIR  := $(BUILD)/
+TARGET   := app
+INCLUDE  := -Iinclude/
+SRC      := $(wildcard src/*.cpp) 
 
-all: somador
+OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-somador: main.o soma.o
-	g++ -o somador main.o soma.o
+all: clean build $(APP_DIR)/$(TARGET)
 
-main.o: main.cpp soma.hpp
-	g++ -o main.o main.cpp -c $(CXXFLAGS)
+$(OBJ_DIR)/%.o: %.cpp         
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $@ -c $<
 
-soma.o: soma.cpp soma.hpp
-	g++ -o soma.o soma.cpp -c $(CXXFLAGS)
+$(APP_DIR)/$(TARGET): $(OBJECTS)
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $(LDFLAGS) -o $(APP_DIR)/$(TARGET) $(OBJECTS)
+
+.PHONY: all build clean debug release run
+
+build:
+	@mkdir -p $(APP_DIR)
+	@mkdir -p $(OBJ_DIR)
+
+debug: CXXFLAGS += -DDEBUG -g
+debug: all
+
+release: CXXFLAGS += -O3
+release: all
 
 clean:
-	rm -rf *.o *~ somador
+	-@rm -rvf $(OBJ_DIR)/*
+	-@rm -rvf $(APP_DIR)/*
+
+run:
+	./$(BUILD)/$(TARGET)

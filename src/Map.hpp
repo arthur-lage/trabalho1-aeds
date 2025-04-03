@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 class Map {
     private:
         int lines;
@@ -10,6 +12,7 @@ class Map {
         int fireInitialX;
         int fireInitialY;
         vector<vector<int>> forest;
+        vector<vector<int>> forestMod;
     public:
         Map(int l, int c, int fx, int fy, vector<vector<int>> forest);
         int getLines();
@@ -17,5 +20,10 @@ class Map {
         int getFireInitialX();
         int getFireInitialY();
         vector<vector<int>> getForest();
+        vector<vector<int>> getForestMod();
+
+        void burn(int x, int y);
+        void spreadFire();
         void show();
+        void iterate();
 };

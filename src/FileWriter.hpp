@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 
+#include "Map.hpp"
+
 using namespace std;
 
 class FileWriter {
@@ -13,4 +15,5 @@ class FileWriter {
     public:
         FileWriter(string filename);
         void generateOutput();
+        void addIteration(int i, Map map);
 };

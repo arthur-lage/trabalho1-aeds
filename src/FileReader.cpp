@@ -40,22 +40,20 @@ Map FileReader::readMap() {
         }
     }
 
-    vector<vector<int>> forest = vector<vector<int>>(lines, vector<int>(columns));
+    std::vector<std::vector<int>> forest(lines, std::vector<int>(columns));
 
-    string linha;
+    std::string linha;
+    int row = 0;
 
-    while (getline(cin, linha)) {  // Lê cada linha da entrada
-        vector<int> linhaNumeros;
-        stringstream ss(linha);
-        int num;
+    while (std::getline(file, linha) && row < lines) {  // Lê cada linha da entrada
+        std::stringstream ss(linha);
+        int num, col = 0;
 
-        while (ss >> num) {  // Lê os números da linha
-            linhaNumeros.push_back(num);
+        while (ss >> num && col < columns) {  // Lê os números da linha
+            forest[row][col] = num;  // Preenche a matriz diretamente
+            col++;
         }
-
-        if (!linhaNumeros.empty()) {
-            forest.push_back(linhaNumeros);
-        }
+        row++;
     }
 
     Map map = Map(lines, columns, fireInitialX, fireInitialY, forest);
