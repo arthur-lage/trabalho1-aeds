@@ -53,6 +53,7 @@ Map FileReader::readMap() {
             forest[row][col] = num;  // Preenche a matriz diretamente
             col++;
         }
+        
         row++;
     }
 

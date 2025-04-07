@@ -20,3 +20,11 @@ int Animal::getTimesFoundWater() {
 int Animal::getSteps() {
     return this->steps;
 }
+
+int Animal::getX() {
+    return this->x;
+}
+
+int Animal::getY() {
+    return this->y;
+}

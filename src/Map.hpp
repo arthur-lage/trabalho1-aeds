@@ -22,8 +22,9 @@ class Map {
         vector<vector<int>> getForest();
         vector<vector<int>> getForestMod();
 
-        void burn(int x, int y);
         void spreadFire();
         void show();
         void iterate();
+
+        bool deveContinuarSimulacao();
 };

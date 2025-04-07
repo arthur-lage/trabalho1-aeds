@@ -58,6 +58,26 @@ vector<int> convertDirections() {
     return direcoes;
 }
 
+bool Map::deveContinuarSimulacao() {
+    for (size_t i = 0; i < forest.size(); i++) {
+        for (size_t j = 0; j < forest[i].size(); j++) {
+            if (forest[i][j] == 1) { // Árvore saudável
+                // Verifica vizinhança (4 direções)
+                if ((i > 0 && forest[i-1][j] == 2) ||                   // UP
+                    (i < forest.size()-1 && forest[i+1][j] == 2) ||   // DOWN
+                    (j > 0 && forest[i][j-1] == 2) ||                   // LEFT
+                    (j < forest[i].size()-1 && forest[i][j+1] == 2)) { // RIGHT
+                    return true; // Há árvores que podem pegar fogo
+                }
+            }
+            else if (forest[i][j] == 2) {
+                return true; // Ainda há árvores em chamas
+            }
+        }
+    }
+    return false;
+}
+
 void Map::spreadFire()
 {
     if (lines == 0 || columns == 0) return;
@@ -69,40 +89,35 @@ void Map::spreadFire()
 
     for (int i = 0; i < lines; i++) {
         for (int j = 0; j < columns; j++) {
-            if (forest[i][j] == 1) { // Árvore saudável
-                // Verifica todas as 4 direções
+            if (forest[i][j] == 1) {
                 for (int d = 0; d < 4; d++) {
-                    // Se há vento configurado E a direção não está na lista, pula
                     if (comVento && find(direcoes.begin(), direcoes.end(), d) == direcoes.end()) {
                         continue;
                     }
                     
-                    // Calcula nova posição
                     int ni = i, nj = j;
                     switch(d) {
-                        case 0: ni--; break; // UP
-                        case 1: ni++; break; // DOWN
-                        case 2: nj--; break; // LEFT
-                        case 3: nj++; break; // RIGHT
+                        case 0: ni--; break;
+                        case 1: ni++; break;
+                        case 2: nj--; break;
+                        case 3: nj++; break;
                     }
                     
-                    // Verifica se está dentro dos limites e se há fogo
                     if (ni >= 0 && ni < lines && nj >= 0 && nj < columns && forest[ni][nj] == 2) {
                         willBurn[i][j] = true;
-                        break; // Basta um vizinho em chamas
+                        break; 
                     }
                 }
             }
         }
     }
     
-    // Atualizar o estado da floresta
     for (int i = 0; i < lines; i++) {
         for (int j = 0; j < columns; j++) {
             if (forest[i][j] == 2) {
-                forest[i][j] = 3; // Árvore queimada
+                forest[i][j] = 3;
             } else if (willBurn[i][j]) {
-                forest[i][j] = 2; // Árvore pega fogo
+                forest[i][j] = 2;
             }
         }
     }
@@ -110,5 +125,5 @@ void Map::spreadFire()
 
 void Map::iterate()
 {
-    this->spreadFire();
+    spreadFire();
 }

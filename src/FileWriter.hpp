@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 
+#include "Animal.hpp"
 #include "Map.hpp"
 
 using namespace std;
@@ -14,6 +15,7 @@ class FileWriter {
         ofstream file;
     public:
         FileWriter(string filename);
-        void generateOutput();
+        void addAnimalInfo(Animal animal);
         void addIteration(int i, Map map);
+        void addFinalIteration(int i);
 };

@@ -13,4 +13,4 @@ std::vector<std::string> DIRECTIONS = {};
 // Número de iterações usadas na simulação:
 //
 
-int ITERATIONS = 4;
+int ITERATIONS = 7;
