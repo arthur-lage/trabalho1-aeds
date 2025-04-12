@@ -49,7 +49,7 @@ void Map::show()
 vector<int> convertDirections() {
     vector<int> direcoes;
 
-    for (string dir : DIRECTIONS) {
+    for (string dir : DIRECTIONS_WIND) {
         if (dir == "UP") direcoes.push_back(0);
         else if (dir == "DOWN") direcoes.push_back(1);
         else if (dir == "LEFT") direcoes.push_back(2);
@@ -58,7 +58,7 @@ vector<int> convertDirections() {
     return direcoes;
 }
 
-bool Map::deveContinuarSimulacao() {
+bool Map::shouldContinueSimulation() {
     for (size_t i = 0; i < forest.size(); i++) {
         for (size_t j = 0; j < forest[i].size(); j++) {
             if (forest[i][j] == 1) { // Árvore saudável
@@ -85,7 +85,7 @@ void Map::spreadFire()
     vector<vector<bool>> willBurn(lines, vector<bool>(columns, false));
     
     vector<int> direcoes = convertDirections();
-    bool comVento = !DIRECTIONS.empty();
+    bool comVento = !DIRECTIONS_WIND.empty();
 
     for (int i = 0; i < lines; i++) {
         for (int j = 0; j < columns; j++) {
@@ -126,4 +126,46 @@ void Map::spreadFire()
 void Map::iterate()
 {
     spreadFire();
+}
+
+pair<int, int> Map::getAnimalRandomPosition() {
+    pair<int, int> pos = {-1, -1};
+    bool found = false;
+    
+    for(size_t i = 0; i < forest.size(); i++) {
+        if(found) break;
+
+        for(size_t j = 0; j < forest[0].size(); j++) {
+            if(forest[i][j] == 0) {
+                pos.first = i;
+                pos.second = j;
+                found = true;
+            }
+
+            if(found) break;
+        }
+    }
+
+    if(pos.first == -1 || pos.second == -1) {
+        cout << "Não existem posições disponíveis para o animal iniciar a simulação." << endl;
+        exit(1);
+    }
+
+    return pos;
+}
+
+void Map::foundWater (int x, int y) {
+    vector<int> dx = {-1, 1, 0, 0};
+    vector<int> dy = {0, 0, -1, 1};
+
+    forest[x][y] = 0;
+        
+    for(int i = 0; i < 4; i++) {
+        int newX = x + dx[i];
+        int newY = y + dy[i];
+        
+        if(newX >= 0 && newX < static_cast<int>(forest.size()) && newY >= 0 && newY < static_cast<int>(forest[0].size())) {
+            forest[newX][newY] = 1;
+        }
+    }
 }

@@ -2,48 +2,48 @@ Interação 1:
 1 2 1 1 4 
 2 3 2 1 1 
 1 2 1 1 4 
-0 0 1 1 1 
+0 0 0 1 1 
 1 4 1 0 4 
 
 Interação 2:
 2 3 2 1 4 
 3 3 3 2 1 
 2 3 2 1 4 
-0 0 1 1 1 
+0 0 0 1 1 
 1 4 1 0 4 
 
 Interação 3:
 3 3 3 2 4 
 3 3 3 3 2 
 3 3 3 2 4 
-0 0 2 1 1 
+0 0 0 1 1 
 1 4 1 0 4 
 
 Interação 4:
 3 3 3 3 4 
 3 3 3 3 3 
 3 3 3 3 4 
-0 0 3 2 1 
-1 4 2 0 4 
+0 1 0 2 1 
+1 0 1 0 4 
 
 Interação 5:
 3 3 3 3 4 
 3 3 3 3 3 
 3 3 3 3 4 
-0 0 3 3 2 
-1 4 3 0 4 
+0 1 0 3 2 
+1 0 1 0 4 
 
 Interação 6:
 3 3 3 3 4 
 3 3 3 3 3 
 3 3 3 3 4 
-0 0 3 3 3 
-1 4 3 0 4 
+0 1 0 3 3 
+1 0 1 0 4 
 
 A simulação parou na iteração: 6
 
 
 Informações do animal: 
-Número de passos: 0
-Achou água 0 vezes.
+Número de passos: 1
+Achou água 1 vezes.
 Caminho do animal:
