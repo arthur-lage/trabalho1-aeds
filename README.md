@@ -1,4 +1,7 @@
-# Trabalho 1 AEDS
+# Trabalho 1 AEDS - Simulação de Incêndio
+
+![image](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![image](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
 Aluno: Arthur Batista Lage e Silva
 
@@ -21,6 +24,16 @@ Funcionamento geral do programa:
     - Possui um loop no arquivo "main.cpp", que fará com que a simulação seja executada até uma quantidade máxima de iterações. Além disso, o loop será encerrado caso: o animal tenha sido encurralado pelo fogo, e não consiga escapar com sua segunda chance; ou caso todas as árvores tenham sido queimadas
 
     - O incêndio só se espalha após a movimentação do animal.
+
+    - O resultado final da simulação fica no arquivo "output.dat", que é gerado após o fim da execução do programa.
+
+## Estrutura do projeto
+
+- Os arquivos de código (.cpp) estão localizados na pasta "src".
+
+- Os arquvios de cabeçalho (.hpp) estão localizados na pasta "include".
+
+- Os binários do projeto são gerados na pasta "build" após a compilação do programa.
 
 ## Compilação
 
