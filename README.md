@@ -11,7 +11,7 @@ Disciplina: Algoritmos e Estruturas de Dados I
 
 ## Introdução
 
-Esse trabalho de aquecimento tem o objetivo de simular  a propagação de um incêndio em uma floresta e também a movimentação de um animal que está dentro dela, além de promover a reflexão.
+Esse trabalho de aquecimento tem o objetivo de simular a propagação de um incêndio em uma floresta e também a movimentação de um animal que está dentro dela, além de promover a reflexão.
 
 Funcionamento geral do programa:
     
@@ -34,6 +34,17 @@ Funcionamento geral do programa:
 - Os arquvios de cabeçalho (.hpp) estão localizados na pasta "include".
 
 - Os binários do projeto são gerados na pasta "build" após a compilação do programa.
+
+## Movimentação do animal
+
+O animal se move a cada iteração da simulação, escolhendo a melhor posição que ele encontrar:
+
+(a) Melhor opção: posição com valor 4 (presença de água)
+(b) Opções intermediárias: posição com valor 0 (área vazia) e posição com valor 1 (ár-
+vore saudável).
+(c) Pior opção: posição com valor 3 (árvore queimada)
+
+Ao alcançar uma posição com valor 4, essa posição se torna uma área vazia, e as posições ortogonalmente adjascentes se tornam 1 (árvores saudáveis).
 
 ## Compilação
 
