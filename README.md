@@ -47,15 +47,26 @@ make
 make run
 ```
 
-Inclusão, na documentação (README.md), de uma análise sobre padrões de propa-
-gação do fogo. Para isso, apresentar exemplos visuais que ilustrem esses padrões, uti-
-lizando imagens. Elabore como parte dessa discussão o comportamento de ambas as
-simulações, sem a consideração do vento e com sua influência.
+## Propagação do fogo
 
-•Discussão sobre a capacidade da solução de simulação em prever o tamanho de um
-incêndio, considerando que cada interação pode ser interpretada como uma unidade de
-tempo.
+### Com vento
 
-•Discussão sobre possíveis algoritmos emergentes que poderiam contribuir com esse
-cenário, apresentando suas principais características e motivos que o levam a uma pos-
-sível melhoria de desempenho.
+### Sem vento
+
+## Relação entre o tamanho do incêndio e quantidade de iterações
+
+A partir das seguintes informações:
+
+- Tamanho da floresta
+
+- Presença de vento
+
+- Proximidade das árvoes
+
+- Quantidade de áreas seguras e áres com água (não permitem que o incêndio se espalhe através delas)
+
+É possível estimar a quantidade de iterações necessárias para a conclusão da simulação.
+
+## Ideia de melhoria na performance
+
+Nesse projeto, para saber quais árvores vão pegar fogo na iteração atual, o programa percorre toda a matriz que representa o estado atual da floresta, marcando em uma outra matriz as posições que começarão a queimar. Uma ideia para melhorar o desempenho seria utilizar uma fila que armazenasse as coordenadas das árvores em chamas. Dessa maneira, não seria necessário utilizar FOR loops em cadeia para encontrar as posições.
