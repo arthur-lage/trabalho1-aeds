@@ -49,9 +49,19 @@ make run
 
 ## Propagação do fogo
 
-### Com vento
+A propagação do fogo pode acontecer de duas maneiras: com vento em todas as direções ou somente em direções específicas. Isso precisa ser definido pelo usuário no arquivo "config.cpp".
 
-### Sem vento
+### Sem vento em direções específicos
+
+Na propagação em todas as direções, o fogo começa se espalhando para cima, para baixo, para esquerda e para a direta, assim como ilustrado na imagem abaixo.
+
+![image](assets/semventoespecifico.png)
+
+### Com vento em uma direção específica
+
+Na propagação com vento em direção específica, o fogo se espalha somente naquela direção inicialmente.
+
+![image](assets/comventoespecifico.png)
 
 ## Relação entre o tamanho do incêndio e quantidade de iterações
 
