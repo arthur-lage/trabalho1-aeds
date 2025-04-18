@@ -15,6 +15,7 @@ Map::Map(int l, int c, int fx, int fy, vector<vector<int>> forest)
     this->fireInitialX = fx;
     this->fireInitialY = fy;
     this->forest = forest;
+    this->alreadyTested = vector<vector<bool>>(lines, vector<bool>(columns, false));
 }
 
 int Map::getLines() { return this->lines; }
@@ -121,6 +122,10 @@ void Map::spreadFire()
             }
         }
     }
+}
+
+vector<vector<bool>> Map::getAlreadyTested() {
+    return this->alreadyTested;
 }
 
 void Map::iterate()

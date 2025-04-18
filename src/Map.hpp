@@ -13,6 +13,7 @@ private:
     int fireInitialX;
     int fireInitialY;
     vector<vector<int>> forest;
+    vector<vector<bool>> alreadyTested;
 
 public:
     Map(int l, int c, int fx, int fy, vector<vector<int>> forest);
@@ -21,7 +22,6 @@ public:
     int getFireInitialX();
     int getFireInitialY();
     vector<vector<int>> getForest();
-    vector<vector<int>> getForestMod();
 
     void spreadFire();
     void show();
@@ -32,4 +32,5 @@ public:
     pair<int, int> getAnimalRandomPosition();
 
     void foundWater(int x, int y);
+    vector<vector<bool>> getAlreadyTested();
 };

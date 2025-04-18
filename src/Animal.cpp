@@ -1,9 +1,13 @@
 #include "Animal.hpp"
 #include "Map.hpp"
 
+#include <cstdlib>
+#include <ctime>
+
 #include "config.hpp"
 
-Animal::Animal(int x, int y) {
+Animal::Animal(int x, int y)
+{
     this->x = x;
     this->y = y;
     this->steps = 0;
@@ -12,67 +16,85 @@ Animal::Animal(int x, int y) {
     this->timesFoundWater = 0;
 }
 
-Animal::Animal() {
+Animal::Animal()
+{
     this->steps = 0;
     this->dead = false;
     this->animalsVision = {-1, -1, -1, -1};
     this->timesFoundWater = 0;
 }
 
-void Animal::seeAround(Map map) {
+void Animal::seeAround(Map map)
+{
     auto forest = map.getForest();
 
-    for(int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
+    {
         int newX = x + DIRS[i].first;
         int newY = y + DIRS[i].second;
 
-        if(newX >= 0 && newX < static_cast<int>(forest.size()) && newY >= 0 && newY < static_cast<int>(forest[0].size())) {
+        if (newX >= 0 && newX < static_cast<int>(forest.size()) && newY >= 0 && newY < static_cast<int>(forest[0].size()))
+        {
             animalsVision[i] = forest[newX][newY];
-        } else {
+        }
+        else
+        {
             animalsVision[i] = -1;
         }
     }
 }
 
-void Animal::addTimesFoundWater() {
+void Animal::addTimesFoundWater()
+{
     this->timesFoundWater += 1;
 }
 
-void Animal::addStep() {
+void Animal::addStep()
+{
     this->steps += 1;
 }
 
-int Animal::getTimesFoundWater() {
+int Animal::getTimesFoundWater()
+{
     return this->timesFoundWater;
 }
 
-int Animal::getSteps() {
+int Animal::getSteps()
+{
     return this->steps;
 }
 
-int Animal::getX() {
+int Animal::getX()
+{
     return this->x;
 }
 
-int Animal::getY() {
+int Animal::getY()
+{
     return this->y;
 }
 
-bool Animal::getDead() {
+bool Animal::getDead()
+{
     return this->dead;
 }
 
-void Animal::die() {
+void Animal::die()
+{
     this->dead = true;
 }
 
-void Animal::walk(Map map) {
+void Animal::walk(Map map)
+{
+    auto alreadyTested = map.getAlreadyTested();
     auto forest = map.getForest();
-    pair<int, int> bestNextStep = {-1, -1};
-    int bestOption = -1;
 
-    for(int i = 0; i < 4; i++) {
-        if(animalsVision[i] == -1) {
+    vector<pair<pair<int, int>, int>> possibleSteps;
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (animalsVision[i] == -1)
+        {
             continue;
         }
 
@@ -80,31 +102,90 @@ void Animal::walk(Map map) {
         int newX = x + DIRS[i].first;
         int newY = y + DIRS[i].second;
 
-        if(currentCell == 4) {
-            bestNextStep = {newX, newY};
-            bestOption = 4;
+        if (alreadyTested[newX][newY])
+        {
+            continue;
+        }
+
+        if (currentCell == 4)
+        { // Se achou comida, vai direto
+            possibleSteps.clear();
+            possibleSteps.push_back({{newX, newY}, 4});
             break;
         }
-        else if(currentCell == 0 || currentCell == 1) {
-            if(bestOption < 1) {
-                bestOption = 1;
-                bestNextStep = {newX, newY};
-            }
+        else if (currentCell == 0 || currentCell == 1)
+        {
+            possibleSteps.push_back({{newX, newY}, 1});
         }
-        else if(currentCell == 3 && bestOption == -1) {
-            bestOption = 3;
-            bestNextStep = {newX, newY};
+        else if (currentCell == 3)
+        {
+            possibleSteps.push_back({{newX, newY}, 3});
         }
     }
 
-    if(bestNextStep.first != -1 && bestNextStep.second != -1) {
+    if (possibleSteps.empty())
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (animalsVision[i] == -1)
+            {
+                continue;
+            }
+
+            int currentCell = animalsVision[i];
+            int newX = x + DIRS[i].first;
+            int newY = y + DIRS[i].second;
+
+            if (currentCell == 4)
+            {
+                possibleSteps.clear();
+                possibleSteps.push_back({{newX, newY}, 4});
+                break;
+            }
+            else if (currentCell == 0 || currentCell == 1)
+            {
+                possibleSteps.push_back({{newX, newY}, 1});
+            }
+            else if (currentCell == 3)
+            {
+                possibleSteps.push_back({{newX, newY}, 3});
+            }
+        }
+    }
+
+    if (!possibleSteps.empty())
+    {
+        int bestValue = possibleSteps[0].second;
+        for (const auto &step : possibleSteps)
+        {
+            if (step.second > bestValue)
+            {
+                bestValue = step.second;
+            }
+        }
+
+        vector<pair<int, int>> bestSteps;
+        for (const auto &step : possibleSteps)
+        {
+            if (step.second == bestValue)
+            {
+                bestSteps.push_back(step.first);
+            }
+        }
+
+        srand(time(nullptr));
+        int randomIndex = rand() % bestSteps.size();
+        pair<int, int> bestNextStep = bestSteps[randomIndex];
+
         x = bestNextStep.first;
         y = bestNextStep.second;
+        alreadyTested[bestNextStep.first][bestNextStep.second] = true;
         addStep();
     }
 }
 
-void Animal::showAnimal(Map map) {
+void Animal::showAnimal(Map map)
+{
     cout << "Animal X: " << x << endl;
     cout << "Animal Y: " << y << endl;
     cout << "Steps: " << steps << endl;
@@ -112,18 +193,19 @@ void Animal::showAnimal(Map map) {
 
     cout << "Matriz lida:\n";
 
-    for (size_t i = 0; i < map.getForest().size(); i++) 
+    for (size_t i = 0; i < map.getForest().size(); i++)
     {
-        for (size_t j = 0; j < map.getForest()[0].size(); j++) 
+        for (size_t j = 0; j < map.getForest()[0].size(); j++)
         {
-            if (static_cast<int>(i) == x && static_cast<int>(j) == y) {
+            if (static_cast<int>(i) == x && static_cast<int>(j) == y)
+            {
                 cout << "X ";
                 continue;
             }
 
             cout << map.getForest()[i][j] << " ";
         }
-        
+
         cout << endl;
     }
 }
