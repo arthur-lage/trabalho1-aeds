@@ -40,3 +40,25 @@ void FileWriter::addIteration(int iteration, Map map)
 void FileWriter::addFinalIteration(int i) {
     file << "A simulação parou na iteração: " << to_string(i) << endl;
 }
+
+void FileWriter::addAnimalIteration(Animal animal, Map map) {
+    file << "\n\nPosição do animal: "  << endl;
+    
+    for (size_t i = 0; i < map.getForest().size(); i++)
+    {
+        for (size_t j = 0; j < map.getForest()[0].size(); j++)
+        {
+            if (static_cast<int>(i) == animal.getX() && static_cast<int>(j) == animal.getY())
+            {
+                cout << "X ";
+                continue;
+            }
+
+            cout << map.getForest()[i][j] << " ";
+        }
+
+        cout << endl;
+    }
+
+    file << "\n";
+}
