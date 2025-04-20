@@ -13,6 +13,7 @@ private:
     int fireInitialX;
     int fireInitialY;
     vector<vector<int>> forest;
+    vector<vector<int>> lastIteration;
     vector<vector<bool>> alreadyTested;
 
 public:
@@ -33,4 +34,7 @@ public:
 
     void foundWater(int x, int y);
     vector<vector<bool>> getAlreadyTested();
+    void markInitialAnimalPosition (int x, int y);
+
+    void goToLastIteration();
 };

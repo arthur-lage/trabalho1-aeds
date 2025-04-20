@@ -23,6 +23,10 @@ int Map::getColumns() { return this->columns; }
 int Map::getFireInitialX() { return this->fireInitialX; }
 int Map::getFireInitialY() { return this->fireInitialY; }
 
+void Map::markInitialAnimalPosition (int x, int y) {
+    this->alreadyTested[x][y] = true;
+}
+
 vector<vector<int>> Map::getForest()
 {
     return forest;

@@ -14,6 +14,7 @@ Animal::Animal(int x, int y)
     this->dead = false;
     this->animalsVision = {-1, -1, -1, -1};
     this->timesFoundWater = 0;
+    this->usedSecondChance = false;
 }
 
 Animal::Animal()
@@ -22,6 +23,19 @@ Animal::Animal()
     this->dead = false;
     this->animalsVision = {-1, -1, -1, -1};
     this->timesFoundWater = 0;
+    this->usedSecondChance = false;
+}
+
+void Animal::useSecondChance() {
+    this->usedSecondChance = true;
+}
+
+bool Animal::isOnFire(Map map) {
+    if(map.getForest()[x][y] == 2) {
+        return true;
+    }
+
+    return false;
 }
 
 void Animal::seeAround(Map map)
@@ -108,7 +122,7 @@ void Animal::walk(Map map)
         }
 
         if (currentCell == 4)
-        { // Se achou comida, vai direto
+        {
             possibleSteps.clear();
             possibleSteps.push_back({{newX, newY}, 4});
             break;

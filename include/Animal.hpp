@@ -12,6 +12,8 @@ class Animal {
         // UP, LEFT, RIGHT, DOWN
         vector<int> animalsVision;
         bool dead;
+        bool usedSecondChance;
+     
     public:
         Animal();
         Animal(int x, int y);
@@ -33,4 +35,7 @@ class Animal {
         void walk(Map map);
 
         void showAnimal(Map map);
+
+        bool isOnFire(Map map);
+        void useSecondChance();
 };

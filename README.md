@@ -46,6 +46,10 @@ vore saudável).
 
 Ao alcançar uma posição com valor 4, essa posição se torna uma área vazia, e as posições ortogonalmente adjascentes se tornam 1 (árvores saudáveis).
 
+### Segunda chance
+
+Caso o animal seja atingido pelo fogo, ele receberá uma segunda chance de movimento, retornando à sua ultima posição e podendo se mover por um caminho diferente a fim de escapar da árvore em chamas.
+
 ## Compilação
 
 A compilação pode ser feita usando o comando (é necessário possuir um compilador de C/C++ e também o make instalados):

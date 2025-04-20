@@ -16,6 +16,8 @@ void Simulation::simulate () {
 
     animal.showAnimal(map);
 
+    map.markInitialAnimalPosition(animal.getX(), animal.getY());
+
     for(int i = 1; i < ITERATIONS + 1; i++) {
         if(!map.shouldContinueSimulation()) {
             break;
@@ -24,6 +26,12 @@ void Simulation::simulate () {
         if(animal.getDead()) {
             cout << "Morreu." << endl;
             break;
+        }
+
+        if (animal.isOnFire(map)) {
+            animal.useSecondChance();
+            map.goToLastIteration();
+            continue;
         }
 
         animal.seeAround(map);
