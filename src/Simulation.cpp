@@ -43,14 +43,13 @@ void Simulation::simulate () {
 
         animal.seeAround(map);
         animal.walk(map);
+        
+        map.iterate();
 
         if(map.getForest()[animal.getX()][animal.getY()] == 4) {
             map.foundWater(animal.getX(), animal.getY());
             animal.addTimesFoundWater();
         }
-        
-        
-        map.iterate();
         
         cout << "\n\n" << endl;
 

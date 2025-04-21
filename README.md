@@ -44,6 +44,8 @@ O animal se move a cada iteração da simulação, escolhendo a melhor posição
 vore saudável).
 (c) Pior opção: posição com valor 3 (árvore queimada)
 
+OBS: Caso o animal precise decidir entre 2 opções para se movimentar, ele vai selecionar alguma de forma aleatoria.
+
 Ao alcançar uma posição com valor 4, essa posição se torna uma área vazia, e as posições ortogonalmente adjascentes se tornam 1 (árvores saudáveis).
 
 ### Segunda chance
