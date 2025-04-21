@@ -63,6 +63,17 @@ vector<int> convertDirections() {
     return direcoes;
 }
 
+void Map::showAlreadyTested() {
+    for (auto& row : alreadyTested) {
+        for (bool val : row) std::cout << (val ? "V " : "F ");
+        std::cout << "\n";
+    }
+}
+
+void Map::addToAlreadyTested(int x, int y) {
+    alreadyTested[x][y] = true;
+}
+
 bool Map::shouldContinueSimulation() {
     for (size_t i = 0; i < forest.size(); i++) {
         for (size_t j = 0; j < forest[i].size(); j++) {
@@ -83,11 +94,17 @@ bool Map::shouldContinueSimulation() {
     return false;
 }
 
+void Map::goToLastIteration() {
+    this->forest = this->lastIteration;
+}
+
 void Map::spreadFire()
 {
     if (lines == 0 || columns == 0) return;
     
     vector<vector<bool>> willBurn(lines, vector<bool>(columns, false));
+
+    this->lastIteration = forest;
     
     vector<int> direcoes = convertDirections();
     bool comVento = !DIRECTIONS_WIND.empty();

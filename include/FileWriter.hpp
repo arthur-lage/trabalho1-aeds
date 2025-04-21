@@ -19,4 +19,5 @@ class FileWriter {
         void addIteration(int i, Map map);
         void addFinalIteration(int i);
         void addAnimalIteration(Animal animal, Map map);
+        void addAnimalStartingPosition(Animal animal, Map map);
 };

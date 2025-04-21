@@ -13,7 +13,7 @@ std::vector<std::string> DIRECTIONS_WIND = {};
 // Número de iterações usadas na simulação:
 //
 
-int ITERATIONS = 7;
+int ITERATIONS = 50;
 
 // Vetor de direções possiveis
 

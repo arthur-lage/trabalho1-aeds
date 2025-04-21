@@ -12,7 +12,14 @@ void Simulation::simulate () {
     Map map = fr.readMap();
     pair<int, int> animalPos = map.getAnimalRandomPosition();
 
+    if(map.getFireInitialX() == animalPos.first && map.getFireInitialY() == animalPos.second) {
+        cout << "Impossível fazer simulação. O animal iniciou o percurso sendo pego pelo fogo. Escolha outra posição para o fogo." << endl;
+        return;
+    }
+
     Animal animal(animalPos.first, animalPos.second);
+
+    fw.addAnimalStartingPosition(animal, map);
 
     animal.showAnimal(map);
 
@@ -42,6 +49,7 @@ void Simulation::simulate () {
             animal.addTimesFoundWater();
         }
         
+        
         map.iterate();
         
         cout << "\n\n" << endl;
@@ -60,6 +68,8 @@ void Simulation::simulate () {
         fw.addAnimalIteration(animal, map);
         final_iteration = i;
     }
+
+    cout << "A simulação foi encerrada agora." << endl;
 
     fw.addFinalIteration(final_iteration);
     fw.addAnimalInfo(animal);

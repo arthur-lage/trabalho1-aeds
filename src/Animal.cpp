@@ -56,6 +56,12 @@ void Animal::seeAround(Map map)
             animalsVision[i] = -1;
         }
     }
+
+    cout << "(" << x << "," << y << ")" << endl;
+    cout << "LEFT:" << animalsVision[0] << endl;
+    cout << "CIMA:" << animalsVision[1] << endl;
+    cout << "DOWN:" << animalsVision[2] << endl;
+    cout << "RIGHT:" << animalsVision[3] << endl;
 }
 
 void Animal::addTimesFoundWater()
@@ -98,15 +104,19 @@ void Animal::die()
     this->dead = true;
 }
 
-void Animal::walk(Map map)
+void Animal::walk(Map& map)
 {
     auto alreadyTested = map.getAlreadyTested();
     auto forest = map.getForest();
+
+        // LEFT, UP, DOWN, RIGHT
 
     vector<pair<pair<int, int>, int>> possibleSteps;
 
     for (int i = 0; i < 4; i++)
     {
+
+        // cout  << "olhando agora: " << i << " - " << animalsVision[i] << endl;
         if (animalsVision[i] == -1)
         {
             continue;
@@ -193,7 +203,10 @@ void Animal::walk(Map map)
 
         x = bestNextStep.first;
         y = bestNextStep.second;
-        alreadyTested[bestNextStep.first][bestNextStep.second] = true;
+
+        // cout << "melhor opcao: " << forest[bestNextStep.first][bestNextStep.second];
+
+        map.addToAlreadyTested(bestNextStep.first, bestNextStep.second);
         addStep();
     }
 }

@@ -9,7 +9,7 @@ class Animal {
         int y;
         int steps;
         int timesFoundWater;
-        // UP, LEFT, RIGHT, DOWN
+        // LEFT, UP, DOWN, RIGHT
         vector<int> animalsVision;
         bool dead;
         bool usedSecondChance;
@@ -32,7 +32,7 @@ class Animal {
         bool getDead();
         void die();
 
-        void walk(Map map);
+        void walk(Map& map);
 
         void showAnimal(Map map);
 

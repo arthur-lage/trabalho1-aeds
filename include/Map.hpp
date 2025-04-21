@@ -37,4 +37,7 @@ public:
     void markInitialAnimalPosition (int x, int y);
 
     void goToLastIteration();
+
+    void addToAlreadyTested (int x, int y);
+    void showAlreadyTested();
 };
