@@ -49,7 +49,7 @@ Ao alcançar uma posição com valor 4, essa posição se torna uma área vazia,
 
 ### Segunda chance
 
-Caso o animal seja atingido pelo fogo, ele receberá uma segunda chance de movimento, retornando à sua ultima posição e podendo se mover por um caminho diferente a fim de escapar da árvore em chamas.
+Caso o animal seja atingido pelo fogo, ele receberá uma segunda chance de movimento, ficando imune ao fogo por uma iteração.
 
 ## Compilação
 
