@@ -8,6 +8,7 @@ using namespace std;
 class Map
 {
 private:
+    bool firstFire;
     int lines;
     int columns;
     int fireInitialX;

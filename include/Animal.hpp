@@ -38,4 +38,7 @@ class Animal {
 
         bool isOnFire(Map map);
         void useSecondChance();
+
+        bool getUsedSecondChance ();
+        void resetSecondChance ();
 };

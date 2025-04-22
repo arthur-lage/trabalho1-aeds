@@ -30,15 +30,19 @@ void Simulation::simulate () {
             break;
         }
 
+        if (animal.isOnFire(map)) {
+            if (!animal.getUsedSecondChance()) {
+                cout << "\n\n\nUSOU SEGUNDA CHANCE\n\n\n" << endl;
+                animal.useSecondChance();
+                continue;
+            } else {
+                animal.die();
+            }
+        }
+
         if(animal.getDead()) {
             cout << "Morreu." << endl;
             break;
-        }
-
-        if (animal.isOnFire(map)) {
-            animal.useSecondChance();
-            map.goToLastIteration();
-            continue;
         }
 
         animal.seeAround(map);
@@ -66,6 +70,10 @@ void Simulation::simulate () {
         fw.addIteration(i, map);
         fw.addAnimalIteration(animal, map);
         final_iteration = i;
+
+        if(animal.getUsedSecondChance()) {
+            animal.resetSecondChance();
+        }
     }
 
     cout << "A simulação foi encerrada agora." << endl;

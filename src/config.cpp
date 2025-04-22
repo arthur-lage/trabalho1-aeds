@@ -7,10 +7,10 @@
 //     std::vector<std::string> DIRECTIONS_WIND = {"UP", "DOWN"};
 //
 
-std::vector<std::string> DIRECTIONS_WIND = {"UP"};
+std::vector<std::string> DIRECTIONS_WIND = {};
 
 
-// Número de iterações usadas na simulação:
+// Número máximo de iterações usadas na simulação:
 //
 
 int ITERATIONS = 50;

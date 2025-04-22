@@ -40,8 +40,7 @@ Funcionamento geral do programa:
 O animal se move a cada iteração da simulação, escolhendo a melhor posição que ele encontrar:
 
 (a) Melhor opção: posição com valor 4 (presença de água)
-(b) Opções intermediárias: posição com valor 0 (área vazia) e posição com valor 1 (ár-
-vore saudável).
+(b) Opções intermediárias: posição com valor 0 (área vazia) e posição com valor 1 (árvore saudável).
 (c) Pior opção: posição com valor 3 (árvore queimada)
 
 OBS: Caso o animal precise decidir entre 2 opções para se movimentar, ele vai selecionar alguma de forma aleatoria.
