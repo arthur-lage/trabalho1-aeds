@@ -93,19 +93,18 @@ bool Map::shouldContinueSimulation()
         for (size_t j = 0; j < forest[i].size(); j++)
         {
             if (forest[i][j] == 1)
-            { // Árvore saudável
-                // Verifica vizinhança (4 direções)
-                if ((i > 0 && forest[i - 1][j] == 2) ||                 // UP
-                    (i < forest.size() - 1 && forest[i + 1][j] == 2) || // DOWN
-                    (j > 0 && forest[i][j - 1] == 2) ||                 // LEFT
+            {
+                if ((i > 0 && forest[i - 1][j] == 2) ||              
+                    (i < forest.size() - 1 && forest[i + 1][j] == 2) || 
+                    (j > 0 && forest[i][j - 1] == 2) ||               
                     (j < forest[i].size() - 1 && forest[i][j + 1] == 2))
-                {                // RIGHT
-                    return true; // Há árvores que podem pegar fogo
+                {               
+                    return true;
                 }
             }
             else if (forest[i][j] == 2)
             {
-                return true; // Ainda há árvores em chamas
+                return true; 
             }
         }
     }

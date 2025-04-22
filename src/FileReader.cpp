@@ -45,12 +45,12 @@ Map FileReader::readMap() {
     std::string linha;
     int row = 0;
 
-    while (std::getline(file, linha) && row < lines) {  // Lê cada linha da entrada
+    while (std::getline(file, linha) && row < lines) {
         std::stringstream ss(linha);
         int num, col = 0;
 
-        while (ss >> num && col < columns) {  // Lê os números da linha
-            forest[row][col] = num;  // Preenche a matriz diretamente
+        while (ss >> num && col < columns) {
+            forest[row][col] = num;
             col++;
         }
         
