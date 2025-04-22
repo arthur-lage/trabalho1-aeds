@@ -1,4 +1,4 @@
 /build
 ./.vscode
-.output.dat
+output.dat
 mapas.txt
