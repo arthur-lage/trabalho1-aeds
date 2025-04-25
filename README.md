@@ -158,6 +158,346 @@ Na propagação com vento em direção específica, o fogo se espalha somente na
 
 ![image](assets/comventoespecifico.png)
 
+## Casos de teste
+
+input.dat:
+
+```
+5 5 1 1
+1 1 1 1 4
+1 2 1 1 1
+1 1 1 1 4
+0 0 0 1 1
+1 4 1 0 4
+```
+
+#### Output sem vento:
+
+```
+Iniciando simulação. O animal é representado pelo X: 
+1 1 1 1 4 
+1 2 1 1 1 
+1 1 1 1 4 
+X 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 1:
+1 1 1 1 4 
+1 2 2 1 1 
+1 2 1 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+1 1 1 1 4 
+1 2 2 1 1 
+1 2 1 1 4 
+0 X 0 1 1 
+1 4 1 0 4 
+
+
+Interação 2:
+1 2 2 1 4 
+2 3 3 2 1 
+2 3 2 1 4 
+0 1 0 1 1 
+1 0 1 0 4 
+
+Posição do animal: 
+1 2 2 1 4 
+2 3 3 2 1 
+2 3 2 1 4 
+0 1 0 1 1 
+1 X 1 0 4 
+
+
+Interação 3:
+2 3 3 2 4 
+3 3 3 3 2 
+3 3 3 2 4 
+0 1 0 1 1 
+1 0 1 0 4 
+
+Posição do animal: 
+2 3 3 2 4 
+3 3 3 3 2 
+3 3 3 2 4 
+0 1 0 1 1 
+X 0 1 0 4 
+
+
+Interação 4:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 1 0 2 1 
+1 0 1 0 4 
+
+Posição do animal: 
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+X 1 0 2 1 
+1 0 1 0 4 
+
+
+Interação 5:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 1 0 3 2 
+1 0 1 0 4 
+
+Posição do animal: 
+3 3 3 3 4 
+3 3 3 3 3 
+X 3 3 3 4 
+0 1 0 3 2 
+1 0 1 0 4 
+
+
+Interação 6:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 1 0 3 3 
+1 0 1 0 4 
+
+Posição do animal: 
+3 3 3 3 4 
+X 3 3 3 3 
+3 3 3 3 4 
+0 1 0 3 3 
+1 0 1 0 4 
+
+
+A simulação parou na iteração: 6
+
+
+Informações do animal: 
+Número de passos: 1
+Achou água 1 vezes.
+```
+
+#### Output com vento em um direção (para baixo):
+
+```
+Iniciando simulação. O animal é representado pelo X: 
+1 1 1 1 4 
+1 2 1 1 1 
+1 1 1 1 4 
+X 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 1:
+1 1 1 1 4 
+1 2 1 1 1 
+1 2 1 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+1 1 1 1 4 
+1 2 1 1 1 
+X 2 1 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 2:
+1 2 1 1 4 
+2 3 2 1 1 
+2 3 2 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+1 2 1 1 4 
+X 3 2 1 1 
+2 3 2 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 4:
+2 3 2 1 4 
+3 3 3 2 1 
+3 3 3 2 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+2 3 2 1 4 
+3 X 3 2 1 
+3 3 3 2 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 5:
+3 3 3 2 4 
+3 3 3 3 2 
+3 3 3 3 4 
+0 0 0 2 1 
+1 4 1 0 4 
+
+Posição do animal: 
+3 X 3 2 4 
+3 3 3 3 2 
+3 3 3 3 4 
+0 0 0 2 1 
+1 4 1 0 4 
+
+
+Interação 6:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 2 
+1 4 1 0 4 
+
+Posição do animal: 
+X 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 2 
+1 4 1 0 4 
+
+
+Interação 7:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 3 
+1 4 1 0 4 
+
+Posição do animal: 
+3 3 3 3 4 
+X 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 3 
+1 4 1 0 4 
+
+
+A simulação parou na iteração: 7
+
+
+Informações do animal: 
+Número de passos: 0
+Achou água 0 vezes.
+```
+
+#### Output com vento em 3 direções (esquerda, direita e para cima):
+
+```
+Iniciando simulação. O animal é representado pelo X: 
+1 1 1 1 4 
+1 2 1 1 1 
+1 1 1 1 4 
+X 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 1:
+1 1 1 1 4 
+1 2 2 1 1 
+1 1 1 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+1 1 1 1 4 
+1 2 2 1 1 
+X 1 1 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 2:
+1 2 2 1 4 
+2 3 3 2 1 
+1 2 2 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+1 2 2 1 4 
+2 3 3 2 1 
+1 X 2 1 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 4:
+2 3 3 2 4 
+3 3 3 3 2 
+2 3 3 2 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+Posição do animal: 
+2 3 3 2 4 
+3 X 3 3 2 
+2 3 3 2 4 
+0 0 0 1 1 
+1 4 1 0 4 
+
+
+Interação 5:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 2 1 
+1 4 1 0 4 
+
+Posição do animal: 
+3 3 3 3 4 
+X 3 3 3 3 
+3 3 3 3 4 
+0 0 0 2 1 
+1 4 1 0 4 
+
+
+Interação 6:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 2 
+1 4 1 0 4 
+
+Posição do animal: 
+X 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 2 
+1 4 1 0 4 
+
+
+Interação 7:
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 3 
+1 4 1 0 4 
+
+Posição do animal: 
+3 X 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 0 0 3 3 
+1 4 1 0 4 
+
+
+A simulação parou na iteração: 7
+
+
+Informações do animal: 
+Número de passos: 0
+Achou água 0 vezes.
+```
+
 ## Conclusão
 
 ### Sobre o projeto
