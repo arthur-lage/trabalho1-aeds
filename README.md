@@ -106,11 +106,14 @@ Após isso, são analisadas todas as árvores que possuem fogo em volta e marcad
 3. Descobre a posição inicial do animal, e verifica se ele é criado em uma área que já está pegando fogo.
 4. Cria o animal na posição inicial.
 5. Loop principal.
+
     6. Verifica se o incêndio deve continuar.
     7. Verifica se o animal está no fogo.
+
         8. Verifica se o animal possui uma segunda chance.
             9. Se sim, dá uma segunda chance para ele se mover.
             10. Se não, encerra a simulação.
+    
     11. Animal olha em volta, para saber quais as possibilidades de movimento.
     12. Animal decide a melhor casa possível para a qual ele deve se mover.
     13. O incêndio se espalha.
