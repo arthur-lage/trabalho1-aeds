@@ -91,39 +91,29 @@ Ao alcançar uma posição com valor 4, essa posição se torna uma área vazia,
 
 Caso o animal seja atingido pelo fogo, ele receberá uma segunda chance de movimento, ficando imune ao fogo por uma iteração.
 
-## Conclusão
-
-
-
-## Compilação
-
-A compilação pode ser feita usando o comando (é necessário possuir um compilador de C/C++ e também o make instalados):
-
-```bash
-# Dentro da raiz do projeto
-
-make clean
-make
-make run
-```
-
-## Propagação do fogo
+### Representação visual do incêndio
 
 A propagação do fogo pode acontecer de duas maneiras: com vento em todas as direções ou somente em direções específicas. Isso precisa ser definido pelo usuário no arquivo "config.cpp".
 
-### Sem vento em direções específicos
+#### Sem vento em direções específicos
 
 Na propagação em todas as direções, o fogo começa se espalhando para cima, para baixo, para esquerda e para a direta, assim como ilustrado na imagem abaixo.
 
 ![image](assets/semventoespecifico.png)
 
-### Com vento em uma direção específica
+#### Com vento em uma direção específica
 
 Na propagação com vento em direção específica, o fogo se espalha somente naquela direção inicialmente.
 
 ![image](assets/comventoespecifico.png)
 
-## Relação entre o tamanho do incêndio e quantidade de iterações
+## Conclusão
+
+### Sobre o projeto
+
+O trabalho trouxe uma oportunidade para revisitar conceitos básicos da programação em C/C++, como leitura e escrita de arquivos, manipulação de elementos em matrizes, lógica de programação, entre outros. Além disso, propôs uma reflexão sobre o desempenho e eficiência do código após os resultados de execução.
+
+### Relação entre o tamanho do incêndio e quantidade de iterações
 
 A partir das seguintes informações:
 
@@ -137,9 +127,23 @@ A partir das seguintes informações:
 
 É possível estimar a quantidade de iterações necessárias para a conclusão da simulação.
 
-## Ideia de melhoria na performance
+Por exemplo, caso existam árvores saudáveis em todas as casas da floresta, todas elas serão afetadas pelo incêndio. Entretanto, a presença de vento nessa simulação poderia diminuir a velocidade da propagação do fogo.
+
+### Ideia de melhoria na performance
 
 Nesse projeto, para saber quais árvores vão pegar fogo na iteração atual, o programa percorre toda a matriz que representa o estado atual da floresta, marcando em uma outra matriz as posições que começarão a queimar. Uma ideia para melhorar o desempenho seria utilizar uma fila que armazenasse as coordenadas das árvores em chamas. Dessa maneira, não seria necessário utilizar FOR loops em cadeia para encontrar as posições.
+
+## Compilação
+
+A compilação pode ser feita usando o comando (é necessário possuir um compilador de C/C++ e também o make instalados):
+
+```bash
+# Dentro da raiz do projeto
+
+make clean
+make
+make run
+```
 
 ## Autores
 
