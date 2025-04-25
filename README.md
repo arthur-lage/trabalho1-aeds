@@ -526,10 +526,6 @@ make
 make run
 ```
 
-## Referências
-
-Este trabalho foi desenvolvido sem consulta direta a referências específicas, mas os conceitos gerais de algoritmos e modelagem computacional são baseados em conhecimentos consolidados na área de ciência da computação.
-
 ## Autores
 
 Arthur Batista Lage e Silva
