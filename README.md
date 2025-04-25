@@ -41,7 +41,7 @@ ITERATIONS: Quantidade máxima de iterações que o programa pode fazer. (Númer
 
 DIRS: Vetor de pair<int, int> que armazena os valores das direções de propagação do fogo ou movimentação do animal. Essa variável não deve ser alterada, pois o funcionamento do programa depende dela. As posições desse vetor representam os valores para esquerda, cima, baixo e direita.
 
-#### <a href="/include/config.cpp">config.cpp</a>
+#### <a href="/src/config.cpp">config.cpp</a>
 
 Aqui as variáveis criadas anteriormente recebem os valores que o usuário deseja utilizar no programa.
 
@@ -51,13 +51,13 @@ Aqui as variáveis criadas anteriormente recebem os valores que o usuário desej
 
 <a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/config.cpp#L20">Linha 20</a>: Define as direções que podem ser utilizadas para o fogo se propagar e para o animal se mover na floresta. (Não deve ser alterado)
 
-#### Animal.cpp
+#### <a href="/src/Animal.cpp">Animal.cpp</a>
 
 Implementa funcionalidades para a classe animal.
 
 Métodos principais:
 
-<a href=""></a>
+
 <a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Animal.cpp#L54">Linha 54</a>: Avalia as posições ao redor do animal, representando as casas que são visíveis por ele. O valor das casas são salvos em um vetor "animalsVision" e são utilizadas para a tomada de decisão na movimentação do animal. As casas -1 representam casas que estão fora do mapa da floresta.
 
 <a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Animal.cpp#L114">Linha 114-214</a>: Essa é uma das funções principais no programa. Ela é responsável por analisar as posições em volta do animal e adicionar as possibilidades de movimento em um vetor "possibleSteps", priorizando as posições que animal ainda não explorou. Se não houver posições ainda não exploradas válidas, o animal tenta pelos lugares que ele já passou.
