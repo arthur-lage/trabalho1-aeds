@@ -70,7 +70,54 @@ Caso o animal tenha uma posição com água ao seu redor, ele se move para lá i
 
 <a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Animal.cpp#L216">Linha 216-240</a>: Função que mostra informações do animal e também sua posição atual na floresta. O animal será representado por um X na floresta.
 
+#### <a href="/src/FileReader.cpp">FileReader.cpp</a>
 
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/FileReader.cpp#L16">Linha 16-65</a>: Função "readMap", responsável por ler as informações da floresta no arquivo "input.dat" e retornar uma instância da classe Mapa com as informações da floresta.
+
+#### <a href="/src/FileReader.cpp">FileWriter.cpp</a>
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/FileWriter.cpp#L16">Linha 16-21</a>: Adiciona informações do animal, como o número de passos total e quantas vezes ele achou água, no arquivo "output.dat".
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/FileWriter.cpp#L23">Linha 23-37</a>: Adicionar o estado atual da floresta no "output.dat"
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/FileWriter.cpp#L43">Linha 43-63</a>: Adicionar o estado atual da floresta com o animal representado por um X no "output.dat".
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/FileWriter.cpp#L65">Linha 65-85</a>: Adicionar o estado inicial da floresta com o animal representado por um X no "output.dat".
+
+#### <a href="/src/Map.cpp">Map.cpp</a>
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Map.cpp#L89">Linha 89-112</a>: Função que verifica se o incêndio deve continuar ou não, fazendo isso por meio de uma análise de se ainda existem árvores pegando fogo ou que irão pegar fogo.
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Map.cpp#L119">Linha 119-226</a>: Função que espalha o fogo pela floresta. 
+Primeira iteração: Caso o usuário tenha especificado nas configurações que o vento deve iniciar em direções específicas, espalha o fogo nessas direções. Se ele não especificar, espalha o fogo em todas as direções ortogonais adjascentes da posição inicial do fogo.
+
+Após isso, são analisadas todas as árvores que possuem fogo em volta e marcadas como true na matriz "willBurn", que armazena quais árvores começarão a pegar fogo. Então, as árvores que já estavam pegando fogo se tornam queimadas, e as que foram marcadas pelo "willBurn" começam a queimar.
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Map.cpp#L238">Linha 238-269</a>: Escolhe a posição inicial do animal na floresta, pegando a primeira casa de valor 0 encontrado no mapa.
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Map.cpp#L271">Linha 271-285</a>: Quando o animal chega numa casa de número 4, transforma essa casa em uma área segura, e as áreas adjacentes ortogonalmente em árvores saudáveis.
+
+#### <a href="/src/Simulation.cpp">Simulation.cpp</a>
+
+<a href="https://github.com/arthur-lage/trabalho1-aeds/blob/8760e36f888363afdbe49aee37aa02b62115cf7c/src/Simulation.cpp#L7">Linha 7-83</a>: Função simulate: responsável por iniciar a simulação.
+
+1. Inicializa o leitor e escritor de arquivos.
+2. Lê o mapa do "input.dat".
+3. Descobre a posição inicial do animal, e verifica se ele é criado em uma área que já está pegando fogo.
+4. Cria o animal na posição inicial.
+5. Loop principal.
+    6. Verifica se o incêndio deve continuar.
+    7. Verifica se o animal está no fogo.
+        8. Verifica se o animal possui uma segunda chance.
+            9. Se sim, dá uma segunda chance para ele se mover.
+            10. Se não, encerra a simulação.
+    11. Animal olha em volta, para saber quais as possibilidades de movimento.
+    12. Animal decide a melhor casa possível para a qual ele deve se mover.
+    13. O incêndio se espalha.
+    14. Caso o animal encontre água, torna as árvores em volta saudáveis.
+    15. Mostra as informações da floresta com e sem o animal.
+    16. Adicionar iterações no "output.dat".
+        
 ### Estrutura do projeto
 
 - Os arquivos de código (.cpp) estão localizados na pasta "src".
