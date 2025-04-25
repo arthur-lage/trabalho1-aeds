@@ -401,101 +401,91 @@ X 0 0 1 1
 
 
 Interação 1:
-1 1 1 1 4 
-1 2 2 1 1 
+1 2 1 1 4 
+2 2 2 1 1 
 1 1 1 1 4 
 0 0 0 1 1 
 1 4 1 0 4 
 
 Posição do animal: 
+Passos: 1
+1 2 1 1 4 
+2 2 2 1 1 
 1 1 1 1 4 
-1 2 2 1 1 
-X 1 1 1 4 
 0 0 0 1 1 
-1 4 1 0 4 
+X 4 1 0 4 
 
 
 Interação 2:
-1 2 2 1 4 
-2 3 3 2 1 
-1 2 2 1 4 
-0 0 0 1 1 
-1 4 1 0 4 
+2 3 2 1 4 
+3 3 3 2 1 
+2 2 2 1 4 
+0 1 0 1 1 
+1 0 1 0 4 
 
 Posição do animal: 
-1 2 2 1 4 
-2 3 3 2 1 
-1 X 2 1 4 
-0 0 0 1 1 
-1 4 1 0 4 
+Passos: 2
+2 3 2 1 4 
+3 3 3 2 1 
+2 2 2 1 4 
+0 1 0 1 1 
+1 X 1 0 4 
+
+
+Interação 3:
+3 3 3 2 4 
+3 3 3 3 2 
+3 3 3 2 4 
+0 2 0 1 1 
+1 0 1 0 4 
+
+Posição do animal: 
+Passos: 3
+3 3 3 2 4 
+3 3 3 3 2 
+3 3 3 2 4 
+0 2 0 1 1 
+1 0 X 0 4 
 
 
 Interação 4:
-2 3 3 2 4 
-3 3 3 3 2 
-2 3 3 2 4 
-0 0 0 1 1 
-1 4 1 0 4 
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 3 0 2 1 
+1 0 1 0 4 
 
 Posição do animal: 
-2 3 3 2 4 
-3 X 3 3 2 
-2 3 3 2 4 
-0 0 0 1 1 
-1 4 1 0 4 
+Passos: 4
+3 3 3 3 4 
+3 3 3 3 3 
+3 3 3 3 4 
+0 3 0 2 1 
+1 0 1 X 4 
 
 
 Interação 5:
 3 3 3 3 4 
 3 3 3 3 3 
 3 3 3 3 4 
-0 0 0 2 1 
-1 4 1 0 4 
+0 3 0 3 1 
+1 0 1 1 0 
 
 Posição do animal: 
-3 3 3 3 4 
-X 3 3 3 3 
-3 3 3 3 4 
-0 0 0 2 1 
-1 4 1 0 4 
-
-
-Interação 6:
+Passos: 5
 3 3 3 3 4 
 3 3 3 3 3 
 3 3 3 3 4 
-0 0 0 3 2 
-1 4 1 0 4 
-
-Posição do animal: 
-X 3 3 3 4 
-3 3 3 3 3 
-3 3 3 3 4 
-0 0 0 3 2 
-1 4 1 0 4 
+0 3 0 3 1 
+1 0 1 1 X 
 
 
-Interação 7:
-3 3 3 3 4 
-3 3 3 3 3 
-3 3 3 3 4 
-0 0 0 3 3 
-1 4 1 0 4 
-
-Posição do animal: 
-3 X 3 3 4 
-3 3 3 3 3 
-3 3 3 3 4 
-0 0 0 3 3 
-1 4 1 0 4 
-
-
-A simulação parou na iteração: 7
+A simulação parou na iteração: 5
 
 
 Informações do animal: 
-Número de passos: 0
-Achou água 0 vezes.
+Número de passos: 5
+Achou água 2 vezes.
 ```
 
 ## Conclusão
@@ -535,6 +525,10 @@ make clean
 make
 make run
 ```
+
+## Referências
+
+Este trabalho foi desenvolvido sem consulta direta a referências específicas, mas os conceitos gerais de algoritmos e modelagem computacional são baseados em conhecimentos consolidados na área de ciência da computação.
 
 ## Autores
 

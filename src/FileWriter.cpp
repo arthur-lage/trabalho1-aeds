@@ -16,7 +16,7 @@ FileWriter::FileWriter(string filename)
 void FileWriter::addAnimalInfo(Animal animal) {
     file << "\n\n";
     file << "Informações do animal: \n";
-    file << "Número de passos: " << to_string(animal.getTimesFoundWater()) << endl;
+    file << "Número de passos: " << to_string(animal.getSteps()) << endl;
     file << "Achou água " << to_string(animal.getTimesFoundWater()) << " vezes." << endl;
 }
 
@@ -42,6 +42,7 @@ void FileWriter::addFinalIteration(int i) {
 
 void FileWriter::addAnimalIteration(Animal animal, Map map) {
     file << "Posição do animal: "  << endl;
+    file << "Passos: " << animal.getSteps() << endl;
     
     for (size_t i = 0; i < map.getForest().size(); i++)
     {

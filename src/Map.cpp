@@ -60,14 +60,24 @@ vector<int> convertDirections()
     for (string dir : DIRECTIONS_WIND)
     {
         if (dir == "UP")
+        {
             direcoes.push_back(0);
+        }
         else if (dir == "DOWN")
+        {
             direcoes.push_back(1);
+        }
         else if (dir == "LEFT")
+        {
             direcoes.push_back(2);
+        }
+
         else if (dir == "RIGHT")
+        {
             direcoes.push_back(3);
+        }
     }
+
     return direcoes;
 }
 
@@ -94,26 +104,21 @@ bool Map::shouldContinueSimulation()
         {
             if (forest[i][j] == 1)
             {
-                if ((i > 0 && forest[i - 1][j] == 2) ||              
-                    (i < forest.size() - 1 && forest[i + 1][j] == 2) || 
-                    (j > 0 && forest[i][j - 1] == 2) ||               
+                if ((i > 0 && forest[i - 1][j] == 2) ||
+                    (i < forest.size() - 1 && forest[i + 1][j] == 2) ||
+                    (j > 0 && forest[i][j - 1] == 2) ||
                     (j < forest[i].size() - 1 && forest[i][j + 1] == 2))
-                {               
+                {
                     return true;
                 }
             }
             else if (forest[i][j] == 2)
             {
-                return true; 
+                return true;
             }
         }
     }
     return false;
-}
-
-void Map::goToLastIteration()
-{
-    this->forest = this->lastIteration;
 }
 
 void Map::spreadFire()
@@ -141,23 +146,32 @@ void Map::spreadFire()
         {
             for (int i = 0; i < static_cast<int>(direcoes.size()); i++)
             {
+
                 switch (direcoes[i])
                 {
                 case 0:
-                    if (fireInitialX - 1 > 0)
+                    if (fireInitialX - 1 >= 0)
+                    {
                         forest[fireInitialX - 1][fireInitialY] = 2;
+                    }
                     break;
                 case 1:
                     if (fireInitialX + 1 < lines)
+                    {
                         forest[fireInitialX + 1][fireInitialY] = 2;
+                    }
                     break;
                 case 2:
-                    if (fireInitialY - 1 > 0)
+                    if (fireInitialY - 1 >= 0)
+                    {
                         forest[fireInitialX][fireInitialY - 1] = 2;
+                    }
                     break;
                 case 3:
                     if (fireInitialY + 1 < columns)
+                    {
                         forest[fireInitialX][fireInitialY + 1] = 2;
+                    }
                     break;
                 }
             }
@@ -171,7 +185,6 @@ void Map::spreadFire()
 
     vector<vector<bool>> willBurn(lines, vector<bool>(columns, false));
 
-    this->lastIteration = forest;
 
     for (int i = 0; i < lines; i++)
     {
