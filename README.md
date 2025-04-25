@@ -29,9 +29,13 @@ Funcionamento geral do programa:
 
 ## Metodologia
 
+### Fluxograma do funcionamento do projeto
+
+<img src="/assets/diagramasimulacao.png"/>
+
 Explicação a cerca do funcionamento das classes e métodos do programa.
 
-#### config.hpp
+#### <a href="/include/config.hpp">config.hpp</a>
 
 Arquivo que define variáveis de configuração que serão usadas no código:
 
