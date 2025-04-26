@@ -13,7 +13,7 @@ Disciplina: Algoritmos e Estruturas de Dados I
 
 Esse trabalho de aquecimento tem o objetivo de simular a propagação de um incêndio em uma floresta e também a movimentação de um animal que está dentro dela.
 
-Funcionamento geral do programa:
+Como funciona o programa de forma resumida:
     
     - Possui um arquivo de configurações chamado "config.cpp", localizado na pasta "src", em que podem ser definidas propriedades que afetam a simulação, como o número máximo de iterações e a direção do vento que empurra o fogo.
 
