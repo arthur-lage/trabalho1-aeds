@@ -84,3 +84,7 @@ void FileWriter::addAnimalStartingPosition(Animal animal, Map map) {
 
     file << "\n\n";
 }
+
+void FileWriter::close() {
+    file.close();
+}

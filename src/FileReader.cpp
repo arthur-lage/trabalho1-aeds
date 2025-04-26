@@ -63,3 +63,7 @@ Map FileReader::readMap() {
 
     return map;
 }
+
+void FileReader::close() {
+    file.close();
+}

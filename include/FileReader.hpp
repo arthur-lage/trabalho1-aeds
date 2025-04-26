@@ -15,4 +15,5 @@ class FileReader {
     public:
         FileReader(string filename);
         Map readMap();
+        void close();
 };

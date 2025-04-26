@@ -10,6 +10,9 @@ void Simulation::simulate () {
     FileWriter fw = FileWriter("output.dat");
 
     Map map = fr.readMap();
+
+    fr.close();
+
     pair<int, int> animalPos = map.getAnimalRandomPosition();
 
     if(map.getFireInitialX() == animalPos.first && map.getFireInitialY() == animalPos.second) {
@@ -80,4 +83,6 @@ void Simulation::simulate () {
 
     fw.addFinalIteration(final_iteration);
     fw.addAnimalInfo(animal);
+
+    fw.close();
 }
